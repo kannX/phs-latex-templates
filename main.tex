@@ -14,20 +14,33 @@
 %allgemeine Einstellungen
 \input{Einstellungen}
 
+\input{Glossar}
 
 \begin{document}
 
 \include{Kapitel/Titelseite}
-%include bindet andere .tex Dateien ein und hilft somit bei der Erstellung eines übersichtlichen Dokumentes
 
-\pagenumbering{gobble}
 \pagenumbering{Roman}
 %Ab hier Seitenzahlen mit Römischen Ziffern
 
 \tableofcontents
 %erstellt das vollautomatische Inhaltsverzeichnis
 
-\clearpage
+% auskommentieren, um den Sperrvermerk wegzulassen
+\include{Kapitel/Sperrvermerk}
+\pagebreak
+
+\listoffigures
+%erstellt das Abbildungsverzeichnis
+\pagebreak
+
+\printglossaries
+\pagebreak
+
+\listoftables
+%erstellt das Tabellenverzeichnis
+\pagebreak
+
 \pagenumbering{arabic}
 %ab hier Seitenzahlen in Arabischen Zahlen
 
@@ -36,14 +49,6 @@
 \include{Kapitel/Praktikum}
 
 \include{Kapitel/Fazit}
-
-\listoffigures
-%erstellt das Abbildungsverzeichnis
-\pagebreak
-
-\listoftables
-%erstellt das Tabellenverzeichnis
-\pagebreak
 
 \printbibliography
 %erstellt das Literaturverzeichnis
