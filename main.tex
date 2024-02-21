@@ -1,0 +1,57 @@
+% Vorlage für WABs der Provadis Hochschule
+% basiert auf "Universität Ulm Praktikumsbericht Vorlage"
+% von Max Sch.
+% CC BY 4.0
+%
+% main.tex
+%
+% Das ist das zentrale Dokument.
+
+
+%persönliche Infos
+\input{Berichtinfos}
+
+%allgemeine Einstellungen
+\input{Einstellungen}
+
+
+\begin{document}
+
+\include{Kapitel/Titelseite}
+%include bindet andere .tex Dateien ein und hilft somit bei der Erstellung eines übersichtlichen Dokumentes
+
+\pagenumbering{gobble}
+\pagenumbering{Roman}
+%Ab hier Seitenzahlen mit Römischen Ziffern
+
+\tableofcontents
+%erstellt das vollautomatische Inhaltsverzeichnis
+
+\clearpage
+\pagenumbering{arabic}
+%ab hier Seitenzahlen in Arabischen Zahlen
+
+\include{Kapitel/Einleitung}
+
+\include{Kapitel/Praktikum}
+
+\include{Kapitel/Fazit}
+
+\listoffigures
+%erstellt das Abbildungsverzeichnis
+\pagebreak
+
+\listoftables
+%erstellt das Tabellenverzeichnis
+\pagebreak
+
+\printbibliography
+%erstellt das Literaturverzeichnis
+
+%Falls eine Erkärung benötigt wird
+\include{Kapitel/Erklaerung}
+
+
+\end{document}
+%beendet das Dokument
+

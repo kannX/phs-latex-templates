@@ -1,0 +1,104 @@
+% Vorlage für Praktikumsberichte
+%
+% Einstellungen.tex
+%
+% Hier werden allgemeine Einstellungen festgelegt.
+
+\documentclass[a4paper,ngerman,12pt,bibliography=totoc,listof=totoc,numbers=noendperiod]{scrartcl}
+%Startet das Dokument und regelt gleichzeitig Formatierungen wie Schriftgröße, Papierformat, Zahlenart, Sprache usw.
+
+%Packages sind Erweiterungen des eigentlichen Programms und erleichtern Abläufe, Darstellungen, Formatierungen usw.
+%Im Folgenden sind die Packages installiert, welche ich zum erstellen einer Bachelorarbeit einmal benötigt wurden.
+%Es kann beliebig erweitert/reduziert werden.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[ngerman]{babel}
+% Paket für Deutsche Sprache (Übersetzungen von Chapter zu Kapitel, 
+% richtige Umlaute, richtige % Silbentrennung)
+% siehe auch http://de.wikipedia.org/wiki/Babel-System
+
+\usepackage{titling}
+%Hilft im Dokument auf den deklarierten Autor und Titel zuzugreifen 
+
+\usepackage[style=numeric-comp,backend=biber,doi=false,isbn=false,maxnames=3,sorting=none]{biblatex}
+\usepackage{csquotes}
+\addbibresource{Referenzen.bib}
+%Regelt die Erstellung des Literaturverzeichnisses sowie die Zitation im gesamten Bericht
+%Greift gleichzeitig auf die Referenzen.bib genannte BibTex datei zu, in welcher die Quellen aufgeführt sind.
+
+\usepackage{url}
+%erzeugt schönere URLs (vorallem in den Quellen wichtig)
+
+\usepackage{float}
+%Hilft beim Anordnen von Bildern, Grafiken und Tabellen
+
+\usepackage{abstract}
+%ermöglicht das einfügen eines Abstract (Nicht relevant fürs Praktikum)
+
+\usepackage{booktabs}
+%ermöglicht das erstellen von schöneren Tabellen 
+
+\usepackage{subfigure}
+%lässt den Benutzer mehrere Grafiken/Bilder in einer Abbildung darstellen
+
+\usepackage{setspace}
+% Paket um den Zeilenabstand zu ändern
+\onehalfspacing
+% Zeilenabstand auf 1,5-fach setzen
+
+\usepackage{pdfpages}
+%ermöglicht das einbinden von eigenständigen PDF Dokumenten 
+
+\usepackage{siunitx} 
+\sisetup{locale = DE}
+%vereinfacht den benötigten Syntax zum Benutzen von SI Einheiten und Mathematischen Gleichungen mit dem deutschen Standart
+
+\usepackage{tikz}
+%Freies Anordnen von Bildern und Text in Relation zueinander, sowie Möglichkeiten Bilder zu bearbeiten
+%Verfügt auserdem über die Möglichkeit Grafiken und Diagramme in Latex zu erstellen
+
+\usepackage[format=plain,labelfont=bf]{caption}
+\captionsetup[table]{position=above}
+%verschönert die Abbildungs- und Tabellenbeschriftungen. Für Tabellen werden die Beschriftungen über der Tabelle angezeigt
+
+\usepackage{icomma}
+%Für den korrekten Abstand der Kommas in Dezimalzahlen und in Gleichungen
+
+\usepackage{amsmath}
+%elementares Paket für Gleichungen. Verschönert diese und erleichtert die Benutzung von Gleichungen.
+
+\usepackage{graphicx}
+%mehr Optionen beim Einbinden und anordnen von Bildern und Grafiken
+
+\usepackage{setspace}
+%Für den richtigen Zeilenabstand
+
+%\usepackage[left=3.5cm, right=2.3cm, top=3cm, bottom=2.5cm]{geometry} %links mehr
+\usepackage[left=3cm, right=3cm, top=3cm, bottom=2.5cm]{geometry} %links rechts gleich
+%Regelt die Seitenabstände
+
+\usepackage[headsepline=true, markcase=noupper]{scrlayer-scrpage}
+%Regelt alle Einstellung bezüglich Kopf- und Fußzeile
+\pagestyle{scrheadings}
+\headheight 16pt
+\setcounter{secnumdepth}{3}                       
+% Setzt den Zähler für die Abschnittsnumerierung auf eine Tiefe von 10. Alle Abschnitte werden nummeriert.
+\setcounter{tocdepth}{3}   
+% Setzt die Tiefe für das Inhaltsverzeichnis auf eine Tiefe von 10. Alle Abschnitte werden aufgeführt.
+% Abschnittsnummer und Überschrift
+\automark{section}
+\ihead{\headmark}
+\chead{}
+\ohead{\pagemark}
+\cfoot{}
+\setlength{\parindent}{0pt}
+%Einschub nach Absätzen und Zeilenumbrüchen
+\renewcommand*{\headfont}{\normalfont}
+
+\usepackage{enumitem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
