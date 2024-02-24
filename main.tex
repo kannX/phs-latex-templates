@@ -20,41 +20,44 @@
 
 \include{Kapitel/Titelseite}
 
-\pagenumbering{Roman}
+\preface
 %Ab hier Seitenzahlen mit Römischen Ziffern
+
+% auskommentieren, um den Sperrvermerk wegzulassen
+\include{Kapitel/Sperrvermerk}
+
+% auskommentieren, um den Abstract/Kurzzusammenfassung wegzulassen
+\include{Kapitel/Abstract}
 
 \tableofcontents
 %erstellt das vollautomatische Inhaltsverzeichnis
 
-% auskommentieren, um den Sperrvermerk wegzulassen
-\include{Kapitel/Sperrvermerk}
-\pagebreak
-
 \listoffigures
 %erstellt das Abbildungsverzeichnis
-\pagebreak
 
 \printglossaries
-\pagebreak
+% erstellt das Glossar
 
 \listoftables
 %erstellt das Tabellenverzeichnis
-\pagebreak
 
-\pagenumbering{arabic}
+\body
 %ab hier Seitenzahlen in Arabischen Zahlen
 
-\include{Kapitel/Einleitung}
+\include{Kapitel/01_Einleitung}
+\include{Kapitel/02_Stand.tex}
+\include{Kapitel/03_Methodik.tex}
+\include{Kapitel/04_Untersuchung.tex}
+\include{Kapitel/05_Ergebnisse.tex}
+\include{Kapitel/06_Fazit.tex}
 
-\include{Kapitel/Praktikum}
-
-\include{Kapitel/Fazit}
+\pagenumbering{Roman}
 
 \printbibliography
 %erstellt das Literaturverzeichnis
 
-%Falls eine Erkärung benötigt wird
-\include{Kapitel/Erklaerung}
+\include{Kapitel/A1_KI}
+\include{Kapitel/A2_Erklaerung}
 
 
 \end{document}

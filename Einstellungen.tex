@@ -7,8 +7,12 @@
 %
 % Hier werden allgemeine Einstellungen festgelegt.
 
-\documentclass[a4paper,ngerman,12pt,bibliography=totoc,listof=totoc,numbers=noendperiod]{scrartcl}
+\documentclass[a4paper,ngerman,12pt,bibliography=totoc,listof=totoc,numbers=noendperiod,openany,twoside,headinclude=false,titlepage=firstiscover,abstract=true,headsepline=true,footsepline=true,headings=big]{scrreprt}
 %Startet das Dokument und regelt gleichzeitig Formatierungen wie Schriftgröße, Papierformat, Zahlenart, Sprache usw.
+% 12pt - die Standardschriftgröße
+% openany - Kapitel dürfen auch auf der "Rückseite" starten, Leerseiten werden vermieden
+% parskip=full - Leerzeilen zwischen Absätzen statt Einrückung
+% twoside - Rückseiten werden mit bedruckt, Seitenzahlen und Binderände werden entsprechen angepasst; Alternative: oneside
 
 %Packages sind Erweiterungen des eigentlichen Programms und erleichtern Abläufe, Darstellungen, Formatierungen usw.
 %Im Folgenden sind die Packages installiert, welche ich zum erstellen einer Bachelorarbeit einmal benötigt wurden.
@@ -19,6 +23,7 @@
 
 % Paket für Times Schrift
 %\usepackage{mathptmx}
+
 \usepackage{charter}
 
 \usepackage[ngerman]{babel}
@@ -41,7 +46,7 @@
 \usepackage{float}
 %Hilft beim Anordnen von Bildern, Grafiken und Tabellen
 
-\usepackage{abstract}
+%\usepackage{abstract}
 %ermöglicht das einfügen eines Abstract (Nicht relevant fürs Praktikum)
 
 \usepackage{booktabs}
@@ -83,30 +88,91 @@
 %Für den richtigen Zeilenabstand
 
 %\usepackage[left=3.5cm, right=2.3cm, top=3cm, bottom=2.5cm]{geometry} %links mehr
-\usepackage[left=3cm, right=2cm, top=3cm, bottom=2cm]{geometry} %links rechts gleich
+\usepackage[left=3cm,right=2cm,top=3cm, bottom=3cm]{geometry}
 %Regelt die Seitenabstände
-
-\usepackage[headsepline=true, markcase=noupper]{scrlayer-scrpage}
-%Regelt alle Einstellung bezüglich Kopf- und Fußzeile
-\pagestyle{scrheadings}
-\headheight 16pt
-\setcounter{secnumdepth}{3}                       
-% Setzt den Zähler für die Abschnittsnumerierung auf eine Tiefe von 10. Alle Abschnitte werden nummeriert.
-\setcounter{tocdepth}{3}   
-% Setzt die Tiefe für das Inhaltsverzeichnis auf eine Tiefe von 10. Alle Abschnitte werden aufgeführt.
-% Abschnittsnummer und Überschrift
-\automark{section}
-\ihead{\headmark}
-\chead{}
-\ohead{\pagemark}
-\cfoot{}
-\setlength{\parindent}{0pt}
-%Einschub nach Absätzen und Zeilenumbrüchen
-\renewcommand*{\headfont}{\normalfont}
 
 \usepackage{enumitem}
 
 \usepackage{glossaries}
+
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{myStyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    keepspaces=true,                 
+    numbers=left,       
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+}
+
+\linespread{1.5}
+\flushbottom
+
+\iffalse % don’t use titlesec.sty with KOMA script classes
+\usepackage{titlesec}
+%% \titleformat{⟨command⟩}[⟨shape⟩]{⟨format⟩}{⟨label⟩}{⟨sep⟩}{⟨before⟩}[⟨after⟩]
+\titleformat{name=\chapter}[display]
+{\usekomafont{chapter}}
+{\raggedleft\chaptertitlename\ {\textcolor{gray}{\fontsize{60}    {65}\selectfont\thechapter}}}
+{20pt}{}[]
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ToC DEPTH LEVEL
+\setcounter{secnumdepth}{3} % number subsubsection
+\setcounter{tocdepth}{3} % list subsubsection
+
+
+\addtokomafont{chapterprefix}{\raggedleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREFACE AND BODY STYLING
+\def\preface{
+    \pagenumbering{roman}
+    \doublespacing
+}
+
+\def\body{
+    %\cleardoublepage
+    \linespread{1.5}
+    \pagenumbering{arabic}
+    \pagestyle{headings}
+}
+
+\def\abstract{
+    \begin{center}{
+        \large\bfseries Kurzzusammenfassung}
+    \end{center}
+    \normalsize
+    \normalfont
+    \linespread{1.5}
+    }{\cleardoublepage}
+\def\endabstract{
+  \par
+}
+
+\newenvironment{acknowledgements}{
+   \cleardoublepage
+    \begin{center}{
+        \large \bf Danksagung}
+    \end{center}
+    \normalsize
+    \linespread{1.5}
+    }{\cleardoublepage}
+\def\endacknowledgements{
+  \par
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
