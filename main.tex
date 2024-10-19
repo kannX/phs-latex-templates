@@ -11,6 +11,13 @@
 %persönliche Infos
 \input{Berichtinfos}
 
+\documentclass[a4paper,ngerman,12pt,bibliography=totoc,listof=totoc,numbers=noendperiod,openany,twoside,headinclude=false,titlepage=firstiscover,abstract=true,headsepline=true,footsepline=true,headings=big]{scrreprt}
+%Startet das Dokument und regelt gleichzeitig Formatierungen wie Schriftgröße, Papierformat, Zahlenart, Sprache usw.
+% 12pt - die Standardschriftgröße
+% openany - Kapitel dürfen auch auf der "Rückseite" starten, Leerseiten werden vermieden
+% parskip=full - Leerzeilen zwischen Absätzen statt Einrückung
+% twoside - Rückseiten werden mit bedruckt, Seitenzahlen und Binderände werden entsprechen angepasst; Alternative: oneside
+
 %allgemeine Einstellungen
 \input{Einstellungen}
 
@@ -37,13 +44,13 @@
 \listoffigures
 %erstellt das Abbildungsverzeichnis
 
+\listoftables
+%erstellt das Tabellenverzeichnis
+
 \glsaddall[types=main]
 %Befehl, um alle Glossar Einträge ohne sie im body aufzurufen, auszugeben
 \printglossary[title=Glossar, type=\glsdefaulttype]
 %erstellt das Glossar
-
-\listoftables
-%erstellt das Tabellenverzeichnis
 
 \printglossary[type=\acronymtype, title=Abkürzungsverzeichnis, nonumberlist]
 %erstellt das Abkürzungsverzeichnis
