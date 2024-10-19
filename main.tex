@@ -16,6 +16,8 @@
 
 \input{Glossar}
 
+\input{Abkuerzungen}
+
 \begin{document}
 
 \include{Kapitel/Titelseite}
@@ -35,11 +37,16 @@
 \listoffigures
 %erstellt das Abbildungsverzeichnis
 
-\printglossaries
-% erstellt das Glossar
+\glsaddall[types=main]
+%Befehl, um alle Glossar Einträge ohne sie im body aufzurufen, auszugeben
+\printglossary[title=Glossar, type=\glsdefaulttype]
+%erstellt das Glossar
 
 \listoftables
 %erstellt das Tabellenverzeichnis
+
+\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis, nonumberlist]
+%erstellt das Abkürzungsverzeichnis
 
 \newpage
 

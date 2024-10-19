@@ -93,7 +93,10 @@
 
 \usepackage{enumitem}
 
-\usepackage{glossaries}
+\usepackage[acronym, toc]{glossaries}
+
+\renewcommand*{\glspostdescription}{}
+%Entfernt die Nummerierung im Abkürzungsverzeichnis
 
 \usepackage{listings}
 \definecolor{codegreen}{rgb}{0,0.6,0}
