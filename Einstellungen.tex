@@ -20,12 +20,12 @@
 \usepackage{charter}
 
 \usepackage[ngerman]{babel}
-% Paket für Deutsche Sprache (Übersetzungen von Chapter zu Kapitel, 
+% Paket für Deutsche Sprache (Übersetzungen von Chapter zu Kapitel,
 % richtige Umlaute, richtige % Silbentrennung)
 % siehe auch http://de.wikipedia.org/wiki/Babel-System
 
 \usepackage{titling}
-%Hilft im Dokument auf den deklarierten Autor und Titel zuzugreifen 
+%Hilft im Dokument auf den deklarierten Autor und Titel zuzugreifen
 
 \usepackage[style=numeric-comp,backend=biber,doi=false,isbn=false,maxnames=3,sorting=none]{biblatex}
 \usepackage{csquotes}
@@ -43,7 +43,7 @@
 %ermöglicht das einfügen eines Abstract (Nicht relevant fürs Praktikum)
 
 \usepackage{booktabs}
-%ermöglicht das erstellen von schöneren Tabellen 
+%ermöglicht das erstellen von schöneren Tabellen
 
 \usepackage{subfigure}
 %lässt den Benutzer mehrere Grafiken/Bilder in einer Abbildung darstellen
@@ -54,9 +54,9 @@
 % Zeilenabstand auf 1,5-fach setzen
 
 \usepackage{pdfpages}
-%ermöglicht das einbinden von eigenständigen PDF Dokumenten 
+%ermöglicht das einbinden von eigenständigen PDF Dokumenten
 
-\usepackage{siunitx} 
+\usepackage{siunitx}
 \sisetup{locale = DE}
 %vereinfacht den benötigten Syntax zum Benutzen von SI Einheiten und Mathematischen Gleichungen mit dem deutschen Standart
 
@@ -86,6 +86,9 @@
 
 \usepackage{enumitem}
 
+\usepackage[hidelinks]{hyperref}
+% Generische Links
+
 \usepackage[acronym, toc]{glossaries}
 
 \renewcommand*{\glspostdescription}{}
@@ -97,20 +100,20 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \lstdefinestyle{myStyle}{
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    keepspaces=true,                 
-    numbers=left,       
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2,
 }
 
