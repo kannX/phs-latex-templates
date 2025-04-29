@@ -79,6 +79,14 @@
 
 \usepackage{setspace}
 %Für den richtigen Zeilenabstand
+%%% HJP 31/3/25
+\newlength\dist
+\setlength\dist{-\topskip}
+\let\chapback\chapterheadstartvskip
+\def\setchapspace#1{\setlength\dist{#1\dist}}
+\def\lesschapspace{\renewcommand*\chapterheadstartvskip{\vspace*{\dist}}}
+\def\resetchapspace{\let\chapterheadstartvskip\chapback}
+%%%
 
 %\usepackage[left=3.5cm, right=2.3cm, top=3cm, bottom=2.5cm]{geometry} %links mehr
 \usepackage[left=3cm,right=2cm,top=3cm, bottom=3cm]{geometry}
@@ -144,6 +152,7 @@
 
 \def\body{
     %\cleardoublepage
+    \lesschapspace
     \linespread{1.5}
     \pagenumbering{arabic}
     \pagestyle{headings}
