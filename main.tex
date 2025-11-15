@@ -11,7 +11,23 @@
 %persönliche Infos
 \input{Berichtinfos}
 
-\documentclass[a4paper,ngerman,12pt,bibliography=totoc,listof=totoc,numbers=noendperiod,openany,twoside,headinclude=false,titlepage=firstiscover,abstract=true,headsepline=true,footsepline=true,headings=big]{scrreprt}
+\documentclass[
+	a4paper,
+	ngerman,
+	12pt,	% 12pt für Times, 11pt für Arial und 10pt für Verdana
+	bibliography=totoc,
+	listof=totoc,
+	numbers=noendperiod,
+	openany,
+	twoside,
+	headinclude=false,
+	titlepage=firstiscover,
+	abstract=true,
+	headsepline=true,
+	footsepline=true,
+	headings=big,
+	hyphenzone=1.25cm
+	]{scrreprt}
 %Startet das Dokument und regelt gleichzeitig Formatierungen wie Schriftgröße, Papierformat, Zahlenart, Sprache usw.
 % 12pt - die Standardschriftgröße
 % openany - Kapitel dürfen auch auf der "Rückseite" starten, Leerseiten werden vermieden
@@ -36,6 +52,8 @@
 
 \preface
 %Ab hier Seitenzahlen mit Römischen Ziffern
+
+\listoftodos
 
 % auskommentieren, um den Sperrvermerk wegzulassen
 \include{Kapitel/Sperrvermerk}

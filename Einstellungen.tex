@@ -14,10 +14,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Times New Roman Alternative, pdflatex-kompatibel
+\usepackage{newtxtext}
+
 % Paket für Times Schrift
 %\usepackage{mathptmx}
-
-\usepackage{charter}
 
 \usepackage[ngerman]{babel}
 % Paket für Deutsche Sprache (Übersetzungen von Chapter zu Kapitel,
@@ -88,9 +89,9 @@
 \def\resetchapspace{\let\chapterheadstartvskip\chapback}
 %%%
 
-%\usepackage[left=3.5cm, right=2.3cm, top=3cm, bottom=2.5cm]{geometry} %links mehr
 \usepackage[left=3cm,right=2cm,top=3cm, bottom=3cm]{geometry}
 %Regelt die Seitenabstände
+%Muss ggf. bei beidseitigem Layout angepasst werden.
 
 \usepackage{enumitem}
 
@@ -125,6 +126,12 @@
     tabsize=2,
 }
 
+\usepackage{todonotes}
+% Kann mit disable komplett ausgeschaltet werden
+%\usepackage[disable]{todonotes}
+\setuptodonotes{fancyline}
+\todototoc
+
 \linespread{1.5}
 \flushbottom
 
@@ -132,7 +139,6 @@
 \usepackage{titlesec}
 %% \titleformat{⟨command⟩}[⟨shape⟩]{⟨format⟩}{⟨label⟩}{⟨sep⟩}{⟨before⟩}[⟨after⟩]
 \titleformat{name=\chapter}[display]
-{\usekomafont{chapter}}
 {\raggedleft\chaptertitlename\ {\textcolor{gray}{\fontsize{60}    {65}\selectfont\thechapter}}}
 {20pt}{}[]
 \fi
