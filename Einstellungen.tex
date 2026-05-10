@@ -14,96 +14,55 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Times New Roman Alternative, pdflatex-kompatibel
-\usepackage{newtxtext}
+% --- Sprache und Schriftart ---
+\usepackage{newtxtext} % Times New Roman Alternative
+\usepackage{newtxmath} % Passendes Mathe zur Schriftart
+\usepackage[ngerman]{babel} % Deutsche Sprache und Silbentrennung
+\usepackage[T1]{fontenc} % Umlaute korrekt
 
-% Paket für Times Schrift
-%\usepackage{mathptmx}
+% --- Überschriften ---
+\setkomafont{disposition}{\rmfamily\bfseries}
+\setkomafont{chapter}{\fontsize{14pt}{17pt}\selectfont}
+\setkomafont{section}{\fontsize{14pt}{17pt}\selectfont}
+\setkomafont{subsection}{\fontsize{12pt}{15pt}\selectfont}
+\setkomafont{subsubsection}{\fontsize{12pt}{15pt}\selectfont}
+\RedeclareSectionCommand[
+  beforeskip=0pt % Zieht die Überschrift ganz nach oben an den Rand
+]{chapter}
 
-\usepackage[ngerman]{babel}
-% Paket für Deutsche Sprache (Übersetzungen von Chapter zu Kapitel,
-% richtige Umlaute, richtige % Silbentrennung)
-% siehe auch http://de.wikipedia.org/wiki/Babel-System
+% --- Seitenformat und Abstände ---
+% Provadis Vorgabe: Links/Oben 3cm, Rechts/Unten 2cm
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry}
 
-\usepackage{titling}
-%Hilft im Dokument auf den deklarierten Autor und Titel zuzugreifen
+\usepackage{setspace}
+\onehalfspacing
+\flushbottom
 
+% --- Grafiken und Tabellen ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage[format=plain,labelfont=bf]{caption}
+\captionsetup[table]{position=above}
+
+% --- Mathematik ---
+\usepackage{amsmath}
+\usepackage{icomma}
+\usepackage{siunitx}
+\sisetup{locale = DE}
+
+% --- Verzeichnisse und Zitate ---
 \usepackage[style=numeric-comp,backend=biber,doi=false,isbn=false,maxnames=3,sorting=none]{biblatex}
 \usepackage{csquotes}
 \addbibresource{Referenzen.bib}
-%Regelt die Erstellung des Literaturverzeichnisses sowie die Zitation im gesamten Bericht
-%Greift gleichzeitig auf die Referenzen.bib genannte BibTex datei zu, in welcher die Quellen aufgeführt sind.
-
-\usepackage{url}
-%erzeugt schönere URLs (vorallem in den Quellen wichtig)
-
-\usepackage{float}
-%Hilft beim Anordnen von Bildern, Grafiken und Tabellen
-
-%\usepackage{abstract}
-%ermöglicht das einfügen eines Abstract (Nicht relevant fürs Praktikum)
-
-\usepackage{booktabs}
-%ermöglicht das erstellen von schöneren Tabellen
-
-\usepackage{subfigure}
-%lässt den Benutzer mehrere Grafiken/Bilder in einer Abbildung darstellen
-
-\usepackage{setspace}
-% Paket um den Zeilenabstand zu ändern
-\onehalfspacing
-% Zeilenabstand auf 1,5-fach setzen
-
-\usepackage{pdfpages}
-%ermöglicht das einbinden von eigenständigen PDF Dokumenten
-
-\usepackage{siunitx}
-\sisetup{locale = DE}
-%vereinfacht den benötigten Syntax zum Benutzen von SI Einheiten und Mathematischen Gleichungen mit dem deutschen Standart
-
-\usepackage{tikz}
-%Freies Anordnen von Bildern und Text in Relation zueinander, sowie Möglichkeiten Bilder zu bearbeiten
-%Verfügt auserdem über die Möglichkeit Grafiken und Diagramme in Latex zu erstellen
-
-\usepackage[format=plain,labelfont=bf]{caption}
-\captionsetup[table]{position=above}
-%verschönert die Abbildungs- und Tabellenbeschriftungen. Für Tabellen werden die Beschriftungen über der Tabelle angezeigt
-
-\usepackage{icomma}
-%Für den korrekten Abstand der Kommas in Dezimalzahlen und in Gleichungen
-
-\usepackage{amsmath}
-%elementares Paket für Gleichungen. Verschönert diese und erleichtert die Benutzung von Gleichungen.
-
-\usepackage{graphicx}
-%mehr Optionen beim Einbinden und anordnen von Bildern und Grafiken
-
-\usepackage{setspace}
-%Für den richtigen Zeilenabstand
-%%% HJP 31/3/25
-\newlength\dist
-\setlength\dist{-\topskip}
-\let\chapback\chapterheadstartvskip
-\def\setchapspace#1{\setlength\dist{#1\dist}}
-\def\lesschapspace{\renewcommand*\chapterheadstartvskip{\vspace*{\dist}}}
-\def\resetchapspace{\let\chapterheadstartvskip\chapback}
-%%%
-
-\usepackage[left=3cm,right=2cm,top=3cm, bottom=3cm]{geometry}
-%Regelt die Seitenabstände
-%Muss ggf. bei beidseitigem Layout angepasst werden.
-
-\usepackage{enumitem}
-
-\usepackage[hidelinks]{hyperref}
-% Generische Links
 
 \usepackage[acronym, toc]{glossaries}
-
 \renewcommand*{\glspostdescription}{}
-%Entfernt die Nummerierung im Abkürzungsverzeichnis
 
+% --- Quellcode ---
 \usepackage{listings}
+\usepackage{xcolor}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -125,68 +84,19 @@
     showtabs=false,
     tabsize=2,
 }
+\lstset{style=myStyle}
 
-\usepackage{todonotes}
-% Kann mit disable komplett ausgeschaltet werden
-%\usepackage[disable]{todonotes}
+% --- Zeug ---
+\usepackage{titling}
+\usepackage{pdfpages}
+\setlength{\marginparwidth}{2cm}
+\usepackage{todonotes} % Randnotizen während des Schreibens
 \setuptodonotes{fancyline}
-\todototoc
 
-\linespread{1.5}
-\flushbottom
+% --- Gliederung ---
+\setcounter{secnumdepth}{3} % Nummeriert bis 1.1.1.1
+\setcounter{tocdepth}{3}    % Zeigt bis 1.1.1.1 im Inhaltsverzeichnis an
 
-\iffalse % don’t use titlesec.sty with KOMA script classes
-\usepackage{titlesec}
-%% \titleformat{⟨command⟩}[⟨shape⟩]{⟨format⟩}{⟨label⟩}{⟨sep⟩}{⟨before⟩}[⟨after⟩]
-\titleformat{name=\chapter}[display]
-{\raggedleft\chaptertitlename\ {\textcolor{gray}{\fontsize{60}    {65}\selectfont\thechapter}}}
-{20pt}{}[]
-\fi
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ToC DEPTH LEVEL
-\setcounter{secnumdepth}{3} % number subsubsection
-\setcounter{tocdepth}{3} % list subsubsection
-
-
-\addtokomafont{chapterprefix}{\raggedleft}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREFACE AND BODY STYLING
-\def\preface{
-    \pagenumbering{roman}
-    \doublespacing
-}
-
-\def\body{
-    %\cleardoublepage
-    \lesschapspace
-    \linespread{1.5}
-    \pagenumbering{arabic}
-    \pagestyle{headings}
-}
-
-\def\abstract{
-    \begin{center}{
-        \large\bfseries Kurzzusammenfassung}
-    \end{center}
-    \normalsize
-    \normalfont
-    \linespread{1.5}
-    }{\cleardoublepage}
-\def\endabstract{
-  \par
-}
-
-\newenvironment{acknowledgements}{
-   \cleardoublepage
-    \begin{center}{
-        \large \bf Danksagung}
-    \end{center}
-    \normalsize
-    \linespread{1.5}
-    }{\cleardoublepage}
-\def\endacknowledgements{
-  \par
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- Links ---
+\usepackage[hidelinks]{hyperref} 
+\usepackage{url}

@@ -8,31 +8,25 @@
 % Das ist das zentrale Dokument.
 
 
-%persönliche Infos
-\input{Berichtinfos}
-
 \documentclass[
 	a4paper,
 	ngerman,
 	12pt,	% 12pt für Times, 11pt für Arial und 10pt für Verdana
+	parskip=half,
 	bibliography=totoc,
 	listof=totoc,
 	numbers=noendperiod,
 	openany,
-	twoside,
+	oneside,
 	headinclude=false,
 	titlepage=firstiscover,
-	abstract=true,
-	headsepline=true,
-	footsepline=true,
-	headings=big,
-	hyphenzone=1.25cm
+	headings=big
 	]{scrreprt}
 %Startet das Dokument und regelt gleichzeitig Formatierungen wie Schriftgröße, Papierformat, Zahlenart, Sprache usw.
 % 12pt - die Standardschriftgröße
 % openany - Kapitel dürfen auch auf der "Rückseite" starten, Leerseiten werden vermieden
 % parskip=full - Leerzeilen zwischen Absätzen statt Einrückung
-% twoside - Rückseiten werden mit bedruckt, Seitenzahlen und Binderände werden entsprechen angepasst; Alternative: oneside
+% oneside - Passend zu den Provadis Anforderung der Seitenstruktur
 
 % \RedeclareSectionCommand[
 %   beforeskip=-32pt
@@ -41,62 +35,56 @@
 
 %allgemeine Einstellungen
 \input{Einstellungen}
-
+\input{Berichtinfos}
 \input{Glossar}
-
 \input{Abkuerzungen}
+
+\makeglossaries
 
 \begin{document}
 
+% --- Deckblatt ---
+\pagenumbering{gobble} % Seitenzahlen aus
 \include{Kapitel/Titelseite}
 
-\preface
-%Ab hier Seitenzahlen mit Römischen Ziffern
+% --- Vorspann ---
+\cleardoublepage
+\pagenumbering{roman} % Startet kleine römischen Zahlen
 
-\listoftodos
+\listoftodos % -- Falls unnötig auskommentieren
+\include{Kapitel/Sperrvermerk} % -- Falls unnötig auskommentieren
+\include{Kapitel/Abstract} % -- Falls unnötig auskommentieren
+\tableofcontents % Erstellt das vollautomatische Inhaltsverzeichnis
+\clearpage
+\listoffigures % Erstellt das Abbildungsverzeichnis
+\clearpage
+\printglossary[title=Glossar] % Erstellt das Glossar
+\clearpage
+\listoftables % Erstellt das Tabellenverzeichnis
+\clearpage
+\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis] % Erstellt das Abkürzungsverzeichnis
+\clearpage
 
-% auskommentieren, um den Sperrvermerk wegzulassen
-\include{Kapitel/Sperrvermerk}
-
-% auskommentieren, um den Abstract/Kurzzusammenfassung wegzulassen
-\include{Kapitel/Abstract}
-
-\tableofcontents
-%erstellt das vollautomatische Inhaltsverzeichnis
-
-\listoffigures
-%erstellt das Abbildungsverzeichnis
-
-\listoftables
-%erstellt das Tabellenverzeichnis
-
-\glsaddall[types=main]
-%Befehl, um alle Glossar Einträge ohne sie im body aufzurufen, auszugeben
-\printglossary[title=Glossar, type=\glsdefaulttype]
-%erstellt das Glossar
-
-\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis, nonumberlist]
-%erstellt das Abkürzungsverzeichnis
-
-\newpage
-
-\body
-%ab hier Seitenzahlen in Arabischen Zahlen
+% --- Hauptteil ---
+\cleardoublepage
+\pagenumbering{arabic} % Startet arabische Seitenzahlen
 
 \include{Kapitel/01_Einleitung}
-\include{Kapitel/02_Stand.tex}
-\include{Kapitel/03_Methodik.tex}
-\include{Kapitel/04_Untersuchung.tex}
-\include{Kapitel/05_Ergebnisse.tex}
-\include{Kapitel/06_Fazit.tex}
+\include{Kapitel/02_Stand}
+\include{Kapitel/03_Methodik}
+\include{Kapitel/04_Untersuchung}
+\include{Kapitel/05_Ergebnisse}
+\include{Kapitel/06_Fazit}
 
-\pagenumbering{Roman}
+% --- Nachspann ---
+\cleardoublepage
+\pagenumbering{Roman} % Startet große römische Seitenzahlen
 
-\printbibliography
-%erstellt das Literaturverzeichnis
+\printbibliography[title=Literaturverzeichnis] % Erstellt das Literaturverzeichnis
 
 \include{Kapitel/A1_KI}
-\include{Kapitel/A2_Erklaerung}
+\include{Kapitel/A2_Anhang}
+\include{Kapitel/A3_Erklaerung}
 
 
 \end{document}
